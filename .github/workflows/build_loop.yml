@@ -296,14 +296,7 @@ jobs:
       - name: Sync clock
         run: sudo sntp -sS time.windows.com
         
-      # Force regenerate provisioning profiles
-      - name: Regenerate provisioning profiles
-        run: bundle exec fastlane match appstore --force --git_url https://${{ secrets.GH_PAT }}@github.com/ahmedzemmouri/Match-Secrets.git
-        env:
-          MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
-          FASTLANE_KEY_ID: ${{ secrets.FASTLANE_KEY_ID }}
-          FASTLANE_ISSUER_ID: ${{ secrets.FASTLANE_ISSUER_ID }}
-          FASTLANE_KEY: ${{ secrets.FASTLANE_KEY }}
+     
     
       # Build signed Loop IPA file
       - name: Fastlane Build & Archive
