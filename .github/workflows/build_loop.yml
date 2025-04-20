@@ -298,7 +298,7 @@ jobs:
         
       # Force regenerate provisioning profiles
       - name: Regenerate provisioning profiles
-        run: bundle exec fastlane match appstore --force
+        run: bundle exec fastlane match appstore --force --git_url https://${{ secrets.GH_PAT }}@github.com/ahmedzemmouri/Match-Secrets.git
         env:
           MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
           FASTLANE_KEY_ID: ${{ secrets.FASTLANE_KEY_ID }}
